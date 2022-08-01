@@ -9,7 +9,7 @@ const context = colorBar.getContext('2d');
 
 addEventListener('resize', ()=>{Canvas(); defColor()})
 
-// Define el color y tamaño inicial de canvas y rainBow Bar
+// Define el color y tamaño de canvas y rainBow Bar
 
 function Canvas () {
 	canvas.height = $('#canvasContainer').clientHeight;
@@ -97,7 +97,7 @@ function rgbToHsl(r, g, b){
   return HSL;
 };
 
-// Selecion de solor en canvas
+// Selección de color a copiar
 
 canvas.addEventListener('click', e =>{
 const pixel = ctx.getImageData(e.offsetX, e.offsetY,1,1).data;
@@ -129,7 +129,7 @@ canvas.addEventListener('mousedown', e =>{move = true,
 addEventListener('mouseup',e =>{move = false, 
 	click = false, moveBarSelector = false})
 
-// Seleccionar colores en rainbow bar
+// Selección de color mostrado en canvas mediante rainbow Bar
 
 colorBar.addEventListener('click', e =>{
 	const colorSelect = context.getImageData(e.offsetX, e.offsetY,  1,1).data;
@@ -148,7 +148,7 @@ colorBar.addEventListener('mousemove', e =>{
 })
 colorBar.addEventListener('mousedown', e =>{moveBarSelector = true})
 
-// Copiar los colores al portapapeles y autoguardado en localStorage
+// Copiar los colores al portapapeles y auto guardado en localStorage
 
 $('.copyRgb').addEventListener('click', e =>{
 	addHistory();
@@ -175,6 +175,7 @@ $('.copyHsl').addEventListener('click', e =>{
 	content.textContent = 'hsl';
 })
 
+// Agregamos un color al historial cuando se presiona el botón copiar
 function addHistory(){
 	let hsl = $('#textHsl').textContent + $('#hsl').textContent;
 	let hex = $('#textHex').textContent + $('#hex').textContent;
