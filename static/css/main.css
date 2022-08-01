@@ -92,8 +92,10 @@ a::visited {
 	margin: auto;
 	width: 60vw;
 	min-width: 500px;
+	max-width: 750px;
 	height: 50vh;
 	min-height: 400px;
+	max-height: 800px;
 	background-color: #0002;
 	backdrop-filter: blur(10px);
 	box-shadow: 0 0 5px 1px #0006;
@@ -111,10 +113,13 @@ a::visited {
 #colorPicker{
 	height: 28vh;
 	min-height: 200px;
+	max-height: 350px;
 	width: 58vw;
 	min-width: 400px;
+	max-width: 650px;
 	display: grid;
 	grid-template-columns: 80% 20%;
+	margin: auto;
 }
 #colorContainer{
 	position: relative;
@@ -126,8 +131,10 @@ a::visited {
 }
 #codeColorContainer{
 	display: grid;
-	grid-template-columns: 1fr 4fr;
+	max-height: 100px;
+	grid-template-columns: 100px 1fr;
 	grid-gap: 10px;
+	margin: auto;
 }
 #selectedColor{
 	width: 100%;
@@ -154,6 +161,8 @@ a::visited {
 #rainbowBarContainer{
 	height: 100%;
 	width: 30%;
+	min-width: 20px;
+	max-width: 40px;
 	margin: auto;
 	display: flex;
 	flex-direction: column;
