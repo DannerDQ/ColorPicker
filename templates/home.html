@@ -1,0 +1,39 @@
+{% extends 'navbar.html' %}
+{% block content %}
+<div id="colorPickerContainer">
+	<div id="colorPicker">
+		<div id="canvasContainer">
+			<div id="gradientSelector"></div>
+			<canvas id="colorContainer"></canvas>
+		</div>
+		<div id="rainbowBarContainer">
+			<div id="barSelector"></div>
+			<canvas id="rainbowBar"></canvas>
+		</div>
+	</div>
+	<div id="codeColorContainer">
+		<div id="selectedColor"></div>
+		<div id="codeColor">
+			<div class="codeColor">
+				<h3>RGB</h3>
+				<p id="rgb">(255,255,255)</p>
+				<button class="button copyRgb">Copiar</button>
+			</div>
+			<div class="codeColor">
+				<h3>HEXADECIMAL</h3>
+				<p id="hex">#FFFFFF</p>
+				<button class="button copyHex">Copiar</button>
+			</div>
+			<div class="codeColor">
+				<h3>HSL</h3>
+				<p id="hsl">(0, 0%, 100%)</p>
+				<button class="button copyHsl">Copiar</button>
+			</div>
+		</div>
+	</div>
+</div>
+<textarea id="textRgb" class="textArea" cols="30" rows="10">rgb</textarea>
+<textarea id="textHex" class="textArea" cols="30" rows="10"></textarea>
+<textarea id="textHsl" class="textArea" cols="30" rows="10">hsl</textarea>
+<script src="../static/JavaScript/main.js"></script>
+{% endblock %}

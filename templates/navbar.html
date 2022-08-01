@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Color Picker</title>
+	<link rel="stylesheet" href="{{ url_for('static', filename = 'css/main.css') }}">
+	<!-- Loader Styles -->
+	<style>
+		.loaderContainer{
+			background-color: #F3F3F3;
+			position: fixed;
+			top: 0;
+			width: 100vw;
+			height: 100vh;
+			z-index: 99999;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+		.loader,.loader:before, .loader:after{
+			background-color: #4685FA;
+			border-radius: 50%;
+			width: 2em;
+			height: 2em;
+			animation: loading 1.5s infinite ease-in-out;
+		}
+		.loader{
+			color: #4685FA;
+			font-size: 13px;
+			position: relative;
+			animation-delay: 250ms;
+		}
+		.loader:before, .loader:after{
+			content: '';
+			position: absolute;
+			top: 0;
+		}
+		.loader:before{
+			left: -3.5em;
+		}
+		.loader:after{
+			left: 3.5em;
+			animation-delay: 500ms;
+		}
+		@keyframes loading{
+			25%{
+				width: 0em;
+				height: 0em;
+			},
+			50%{
+				width: 2em;
+				height: 2em;
+			},
+			75%{
+				width: 0em;
+				height: 0em;
+			},
+			100%{
+				width: 2em;
+				height: 2em;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="loaderContainer">
+		<div class="loader"></div>
+	</div>
+	<header>
+		<div id="navBar">
+			<div id="navBarLogo">
+				<font>Color Picker</font>
+				<img src="../static/logo.png" alt="Logo">
+			</div>
+			<div id="navBarULContainer">
+				<ul id="navBarUL">
+					<li class="navBarLI home">
+						<a href="/" class="navBarLink">Color Picker</a>
+					</li>
+					<li class="navBarLI history">
+						<a href="{{ url_for('history') }}" class="navBarLink">Historial</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</header>
+	<div id="content">
+		{% block content %}
+		{% endblock %}
+	</div>
+	<!-- Ocultar Loader -->
+	<script type="text/javascript">
+		window.addEventListener('load', ()=>{
+			const container = document.querySelector('.loaderContainer');
+			container.style.opacity = 0;
+			container.style.visibility = 'hidden';
+		})
+	</script>
+</body>
+</html>
