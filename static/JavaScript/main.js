@@ -5,6 +5,10 @@ const canvas = $('canvas'), colorBar = $('#rainbowBar');
 const ctx = canvas.getContext('2d');
 const context = colorBar.getContext('2d');
 
+// Escuchar cuando se cambia de tamaño la pantalla
+
+addEventListener('resize', ()=>{Canvas(); defColor()})
+
 // Define el color y tamaño inicial de canvas y rainBow Bar
 
 function Canvas () {
@@ -13,20 +17,6 @@ function Canvas () {
 	colorBar.height = $('#rainbowBarContainer').clientHeight;
 	colorBar.width = $('#rainbowBarContainer').clientWidth-2;
 	$('#barSelector').style.width = `${colorBar.width + 6}px`
-	const horizontalGradient = ctx.createLinearGradient(0, canvas.height, canvas.width, canvas.height);
-	const verticalGradient = ctx.createLinearGradient(canvas.width, 0, canvas.width, canvas.height);
-	horizontalGradient.addColorStop(0, '#FFF');
-	horizontalGradient.addColorStop(0.1, '#FFF');
-	horizontalGradient.addColorStop(0.95, color);
-	horizontalGradient.addColorStop(1, color);
-	verticalGradient.addColorStop(0, 'transparent');
-	verticalGradient.addColorStop(0.1, 'transparent');
-	verticalGradient.addColorStop(0.95, '#000');
-	verticalGradient.addColorStop(1, '#000');
-	ctx.fillStyle = horizontalGradient;
-	ctx.fillRect(0, 0, canvas.width, canvas.height);
-	ctx.fillStyle = verticalGradient;
-	ctx.fillRect(0, 0, canvas.width, canvas.height);
 	const gradient1 = context.createLinearGradient(colorBar.width,0, colorBar.width,colorBar.height);
 	gradient1.addColorStop(0, '#F00');
 	gradient1.addColorStop(0.1, '#F00');
@@ -62,6 +52,7 @@ function defColor(){
 	ctx.fillStyle = verticalGradient;
 	ctx.fillRect(0, 0, canvas.width, canvas.height);
 }
+defColor()
 
 // RGB to HEX
 
